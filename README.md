@@ -14,3 +14,8 @@ The only adjustments necessary is to provide your own ACCESS_KEY and BUCKET_KET 
 
 After that, compile and run and you should be able to see the new feeds show up to add to your dashboard!
 
+***Note: After compiling, it's best to run the program as follows to prevent debug info from populating the terminal. There is an additional library that can be used do deal with this (see d2r2's github), but this was the easiest and quickist solution for me:
+
+	./main > /dev/null &
+
+This will run the program in the background with no debug info displayed to the screen, allowing you to continue using the terminal***
