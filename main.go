@@ -99,7 +99,7 @@ func main() {
 		}
 
 		t := fmt.Sprintf("%.2f", float32(temp) * 1.8 + 28.6)
-    h := fmt.Sprintf("%.1f", float32(rh))
+    		h := fmt.Sprintf("%.1f", float32(rh))
 
 		go sendTemp(t)      //Using go routine prevents code interupts for the next function call.
 
