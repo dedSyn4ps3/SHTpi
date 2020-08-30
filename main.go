@@ -53,8 +53,8 @@ func sendHum(h string) {
         req, _ := http.NewRequest("POST", "https://groker.init.st/api/events", bytes.NewBuffer(jsonBody))
 
         req.Header.Add("Content-Type", "application/json")
-	      req.Header.Add("X-IS-AccessKey", "YOUR_ACCESS_KEY")
-	      req.Header.Add("X-IS-BucketKey", "YOUR_BUCKET_KEY")
+	req.Header.Add("X-IS-AccessKey", "YOUR_ACCESS_KEY")
+	req.Header.Add("X-IS-BucketKey", "YOUR_BUCKET_KEY")
         req.Header.Add("Accept-Version", "~0")
 
         resp, err := client.Do(req)
