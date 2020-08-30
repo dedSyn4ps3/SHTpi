@@ -19,3 +19,5 @@ After that, compile and run and you should be able to see the new feeds show up 
 	./main > /dev/null &
 
 This will run the program in the background with no debug info displayed to the screen, allowing you to continue using the terminal***
+
+Also note that it may very well be necessary to slightly adjust values related to calculating proper degrees and relative humidity. Most of the sensors can be extremely accurate, but also typically require a period of 'getting burned in' after continuous use to start having more constant readings. A simple value adjustment is usually all it takes to offset any margin of error!
