@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"flag"
 	"log"
 	"time"
 	"encoding/json"
@@ -74,16 +73,12 @@ func sendHum(h string) {
 
 func main() {
 
-	var device = flag.Int("d", 1, "I2C device")
-	var address = flag.Int("a", 0x44, "I2C address")  //Address of the sht31 sensor. Change this if using a different sensor.
-
-	flag.Parse()
-
-	i2c, err := i2c.NewI2C(uint8(*address), *device)
-
+	i2c, err := i2c.NewI2C(0x44, 1) //Cleaner declaration for setting up SHT sensor instead of using flags.
+	
 	if err != nil {
 		log.Fatal(err)
 	}
+	
 	defer i2c.Close()
 
 	sensor := sht3x.NewSHT3X()
@@ -98,7 +93,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		t := fmt.Sprintf("%.2f", float32(temp) * 1.8 + 28.6)
+		t := fmt.Sprintf("%.2f", float32(temp) * 1.8 + 19.8) //This seems to be a better value offset for accurate Fahrenheit readings
     		h := fmt.Sprintf("%.1f", float32(rh))
 
 		go sendTemp(t)      //Using go routine prevents code interupts for the next function call.
